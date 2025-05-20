@@ -1,0 +1,140 @@
+@Red: hsl(0, 78%, 62%);
+@Cyan: hsl(180, 62%, 55%);
+@Orange: hsl(34, 97%, 64%);
+@Blue: hsl(212, 86%, 64%);
+
+@Grey-500: hsl(234, 12%, 34%);
+@Grey-400: hsl(212, 6%, 44%);
+@White: hsl(0, 0%, 100%);
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 15px;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+    background-color: @White;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+main {
+    max-width: 82%;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4em 0;
+    margin: 0 auto;
+
+    .header__preheading {
+        .poppins-extralight();
+        color: @Grey-400;
+        font-size: 1.65rem;
+    }
+    .header__heading {
+        .poppins-semibold();
+        color: @Grey-500;
+        font-size: 1.65rem;
+        margin-bottom: .8em;
+    }
+    .header__description {
+        .poppins-regular();
+        color: @Grey-400;
+    }
+}
+
+.card {
+    padding: 2em;
+    border-radius: 6px;
+    box-shadow: fade(@Grey-400, 15%) 0px 5px 15px 5px; // is this grey or blue??
+    margin-bottom: 2.375em;
+
+    .card__heading {
+        .poppins-semibold();
+        color: @Grey-500;
+        font-size: 1.4rem;
+        padding-bottom: .2em;
+    }
+    .card__description {
+        .poppins-regular();
+        color: @Grey-400;
+        font-size: 0.9rem;
+        padding-bottom: 1em;
+    }
+    .card__image {
+        display: block;
+        margin-left: auto;
+        padding: 1em 0;
+    }
+}
+@border_color_thickness: 5px;
+.card--cyan {
+    border-top: @border_color_thickness solid @Cyan;
+}
+.card--red {
+    border-top: @border_color_thickness solid @Red;
+}
+.card--orange {
+    border-top: @border_color_thickness solid @Orange;
+}
+.card--blue {
+    border-top: @border_color_thickness solid @Blue;
+}
+
+@media (min-width: 830px) {
+    .header {
+        .header__heading, .header__preheading {
+            font-size: 2.3rem;
+        }
+        .header__description {
+            max-width: 50%;
+        }
+    }
+    
+    .cards {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2.375em;
+
+        .col {
+            display: flex;
+            flex-direction: column;
+        }
+        .card {
+            max-width: 22em;
+        }
+    }
+}
+
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
